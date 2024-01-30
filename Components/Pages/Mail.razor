@@ -1,0 +1,57 @@
+﻿@page "/Mail"
+
+
+<h3>Test</h3>
+
+<p role="status">IMAP inbox count: @IMAPCount</p>
+<p role="status">POP3 inbox count: @POP3Count</p>
+
+<button class="btn btn-primary" @onclick="FetchIMAP">Fetch Mails IMAP</button>
+<button class="btn btn-primary" @onclick="FetchPOP3">Fetch Mails POP3</button>
+<p role="status">Errors: @errorMsg</p>
+
+@if (IMAPCount==0 && POP3Count==0)
+{
+    <p><em>Waiting...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>From</th>
+                <th>Subject</th>
+                <th>Body</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(IMAPInbox!=null)
+            {
+                @foreach (var mail in IMAPInbox)
+                {
+                    <tr>
+                        <td>@mail.From</td>
+                        <td>@mail.Subject</td>
+                        <td>@mail.Body</td>
+                        <td>@mail.MailDate.ToShortDateString()</td>
+                    </tr>
+                }
+            }
+            @if (POP3inbox != null)
+            {
+                @foreach (var mail in POP3inbox)
+                {
+                    <tr>
+                        <td>@mail.From</td>
+                        <td>@mail.Subject</td>
+                        <td>@mail.Body</td>
+                        <td>@mail.MailDate.ToShortDateString()</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}
+
+
