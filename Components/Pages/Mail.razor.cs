@@ -20,7 +20,7 @@ namespace MailClientUsingBlazor.Components.Pages
             using (var client = new OpenPop.Pop3.Pop3Client())
             {
                 client.Connect("pop.gmail.com", 995, true); // Use SSL
-                client.Authenticate(email, password);
+                client.Authenticate("email", "password");
                 int messageCount = client.GetMessageCount();
                 POP3Count = messageCount;
                 client.Disconnect();
@@ -30,7 +30,7 @@ namespace MailClientUsingBlazor.Components.Pages
                 imapClient.Connect("imap.gmail.com", 993, true); // Use SSL
                 try
                 {
-                    imapClient.Authenticate(email, password);
+                    imapClient.Authenticate("email", "password");
                     var inbox = imapClient.Inbox;
                     inbox.Open(FolderAccess.ReadOnly);
                     IMAPCount = inbox.Count;
@@ -47,7 +47,7 @@ namespace MailClientUsingBlazor.Components.Pages
                 imapClient.Connect("imap.gmail.com", 993, true); // Use SSL
                 try
                 {
-                    imapClient.Authenticate(email, password);
+                    imapClient.Authenticate("email", "password");
                     var inbox = imapClient.Inbox;
                     inbox.Open(FolderAccess.ReadOnly);
 
@@ -69,7 +69,7 @@ namespace MailClientUsingBlazor.Components.Pages
             using (var client = new OpenPop.Pop3.Pop3Client())
             {
                 client.Connect("pop.gmail.com", 995, true); // Use SSL
-                client.Authenticate(email, password);
+                client.Authenticate("email", "password");
                 System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
                 for (int i = 1; i <= POP3Count; i++)
                 {
