@@ -1,4 +1,3 @@
-using MailFetch1.LIbraries.Constants;
 using MailKit;
 using MailKit.Net.Imap;
 using OpenPop.Mime;
@@ -6,14 +5,12 @@ using System.Net.Security;
 using System.Net.Sockets;
 using System.Text;
 
-namespace MailFetch1.Components.Pages
+namespace MailClientUsingBlazor.Components.Pages
 {
     public partial class Mail
     {
         private static string errorMsg = "No Errors";        
         private static int IMAPCount = 0, POP3Count = 0;
-        string email = Constants1.email;
-        string password = Constants1.password;
         private List<MailEntity>? IMAPInbox;
         private List<MailEntity>? POP3inbox;
 

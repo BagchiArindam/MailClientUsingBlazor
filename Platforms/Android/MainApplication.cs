@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace MailFetch1
+namespace MailClientUsingBlazor
 {
     [Application]
     public class MainApplication : MauiApplication

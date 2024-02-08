@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace MailFetch1
+namespace MailClientUsingBlazor
 {
     public static class MauiProgram
     {

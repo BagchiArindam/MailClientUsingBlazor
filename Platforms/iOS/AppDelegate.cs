@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace MailFetch1
+namespace MailClientUsingBlazor
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate
