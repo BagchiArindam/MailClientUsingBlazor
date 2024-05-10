@@ -84,13 +84,13 @@ namespace MailClientUsingBlazor.Components.Pages
         }
         private void DownloadAllAttachments()
         {
-            string savePath = @"D:\TimCoreyDev";
+            string savePath = @"D:\";
             using (var imapClient = new ImapClient())
             {
                 imapClient.Connect("imap.gmail.com", 993, true);                
                 imapClient.Authenticate(email, password);
                 imapClient.Inbox.Open(FolderAccess.ReadOnly);
-                var searchQuery = SearchQuery.FromContains("tim@iamtimcorey.com");
+                var searchQuery = SearchQuery.FromContains("");
                 var uids = imapClient.Inbox.Search(searchQuery);
                 
                 
