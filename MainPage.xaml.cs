@@ -1,4 +1,4 @@
-﻿namespace MailFetch1
+﻿namespace MailClientUsingBlazor
 {
     public partial class MainPage : ContentPage
     {

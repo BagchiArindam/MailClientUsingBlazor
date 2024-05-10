@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace MailFetch1
+namespace MailClientUsingBlazor
 {
     public class Program
     {

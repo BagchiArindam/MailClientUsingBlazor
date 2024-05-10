@@ -1,4 +1,3 @@
-using MailFetch1.LIbraries.Constants;
 using MailKit;
 using MailKit.Net.Imap;
 using MailKit.Search;
@@ -8,15 +7,12 @@ using System.Net.Security;
 using System.Net.Sockets;
 using System.Text;
 
-
-namespace MailFetch1.Components.Pages
+namespace MailClientUsingBlazor.Components.Pages
 {
     public partial class Mail
     {
         private static string errorMsg = "No Errors";        
         private static int IMAPCount = 0, POP3Count = 0;
-        string email = Constants1.email;
-        string password = Constants1.password;
         private List<MailEntity>? IMAPInbox;
         private List<MailEntity>? POP3inbox;
 
@@ -26,7 +22,7 @@ namespace MailFetch1.Components.Pages
             using (var client = new OpenPop.Pop3.Pop3Client())
             {
                 client.Connect("pop.gmail.com", 995, true); // Use SSL
-                client.Authenticate(email, password);
+                client.Authenticate("email", "password");
                 int messageCount = client.GetMessageCount();
                 POP3Count = messageCount;
                 client.Disconnect();
@@ -36,7 +32,7 @@ namespace MailFetch1.Components.Pages
                 imapClient.Connect("imap.gmail.com", 993, true); // Use SSL
                 try
                 {
-                    imapClient.Authenticate(email, password);
+                    imapClient.Authenticate("email", "password");
                     var inbox = imapClient.Inbox;
                     inbox.Open(FolderAccess.ReadOnly);
                     IMAPCount = inbox.Count;
@@ -53,7 +49,7 @@ namespace MailFetch1.Components.Pages
                 imapClient.Connect("imap.gmail.com", 993, true); // Use SSL
                 try
                 {
-                    imapClient.Authenticate(email, password);
+                    imapClient.Authenticate("email", "password");
                     var inbox = imapClient.Inbox;
                     inbox.Open(FolderAccess.ReadOnly);
 
@@ -75,7 +71,7 @@ namespace MailFetch1.Components.Pages
             using (var client = new OpenPop.Pop3.Pop3Client())
             {
                 client.Connect("pop.gmail.com", 995, true); // Use SSL
-                client.Authenticate(email, password);
+                client.Authenticate("email", "password");
                 System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
                 for (int i = 1; i <= POP3Count; i++)
                 {
