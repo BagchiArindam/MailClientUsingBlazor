@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/LIbraries/Constants/Constants1.cs
+/workload-install.ps1

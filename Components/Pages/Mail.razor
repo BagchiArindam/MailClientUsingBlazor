@@ -8,6 +8,7 @@
 
 <button class="btn btn-primary" @onclick="FetchIMAP">Fetch Mails IMAP</button>
 <button class="btn btn-primary" @onclick="FetchPOP3">Fetch Mails POP3</button>
+<button class="btn btn-primary" @onclick="DownloadAllAttachments">Download All Attachment using IMAP</button>
 <p role="status">Errors: @errorMsg</p>
 
 @if (IMAPCount==0 && POP3Count==0)
